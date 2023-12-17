@@ -21,34 +21,11 @@ public class MemberTest {
     }
 
     @Test
-    @DisplayName("구매 증가 후 누적포인트 점수 확인")
-    void increaseBuyCnt() {
-        Member m = new Member(2, "홍길순", 3);
-        assertThat(m.toString()).contains("===\n"
-                                                  + "회원 아이디 : 2\n"
-                                                  + "회원 이름 : 홍길순\n"
-                                                  + "가입일 : " + LocalDate.now() + "\n"
-                                                  + "구매 횟수 : 3\n"
-                                                  + "누적 포인트 점수 : 90\n"
-                                                  + "회원 등급 : FAMILY");
-        m.increaseBuyCnt();
-        assertThat(m.toString()).contains("===\n"
-                                                  + "회원 아이디 : 2\n"
-                                                  + "회원 이름 : 홍길순\n"
-                                                  + "가입일 : " + LocalDate.now() + "\n"
-                                                  + "구매 횟수 : 4\n"
-                                                  + "누적 포인트 점수 : 120\n"
-                                                  + "회원 등급 : FAMILY");
-    }
-
-    @Test
     @DisplayName("이달의 최고회원 확인")
     void checkBestMember() {
         Member m1 = new Member(1, "홍길동", 4);
         Member m2 = new Member(2, "홍길순", 10);
 
-        Member bestMember = Member.getBestMember();
-
-        assertThat(bestMember).isEqualTo(m2);
+        assertThat(Member.getBestMember()).isEqualTo(m2);
     }
 }

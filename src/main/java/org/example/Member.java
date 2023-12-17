@@ -6,12 +6,10 @@ import java.util.List;
 
 public class Member {
     private static List<Member> memberList = new ArrayList<>();
-    private static long maxPoint;
     private long m_id;
     private String name;
     private LocalDate regDate;
-    private long buyCnt;
-    private long totalPoint;
+    private Point point;
     private MemberShip memberShip;
 
 
@@ -19,55 +17,29 @@ public class Member {
         this.m_id = m_id;
         this.name = name;
         this.regDate = LocalDate.now();
-        this.buyCnt = buyCnt;
-        initTotalPoint();   // 누적 포인트 합계
-        resetMaxPoint();    // 최고 포인트 초기화
-        memberShip = new MemberShip(buyCnt);
+        this.point = new Point(buyCnt);
+        this.memberShip = new MemberShip(point.getPoint());
         memberList.add(this);
-    }
-
-    private void addPointByBestMember() {
-        this.totalPoint += 10000;
-    }
-
-    private void resetMaxPoint() {
-        if (maxPoint < totalPoint) {
-            maxPoint = totalPoint;
-        }
     }
 
     public static Member getBestMember() {
         for (Member m : memberList) {
-            if (m.totalPoint == maxPoint) {
-                m.addPointByBestMember();
+            if (m.point.getPoint() == Point.maxPoint) {
+                m.point.addPointByBestMember();
                 return m;
             }
         }
         return null;
     }
 
-    public void increaseBuyCnt() {
-        buyCnt++;
-        initTotalPoint();
+    public void buy() {
+        point.increaseBuyCnt();
+        memberShip.refresh(point.getPoint());
     }
 
-    public void decreaseBuyCnt() {
-        buyCnt--;
-        initTotalPoint();
-    }
-
-    private void initTotalPoint() {
-        if (buyCnt < 3) {
-            this.totalPoint = buyCnt * 20;
-            return;
-        } else if (buyCnt < 6) {
-            this.totalPoint = buyCnt * 30;
-            return;
-        } else if (buyCnt < 10) {
-            this.totalPoint = buyCnt * 50;
-            return;
-        }
-        this.totalPoint = buyCnt * 100;
+    public void refund() {
+        point.decreaseBuyCnt();
+        memberShip.refresh(point.getPoint());
     }
 
     @Override
@@ -76,8 +48,8 @@ public class Member {
                        + "\n회원 아이디 : " + m_id
                        + "\n회원 이름 : " + name
                        + "\n가입일 : " + regDate
-                       + "\n구매 횟수 : " + buyCnt
-                       + "\n누적 포인트 점수 : " + totalPoint
+                       + "\n구매 횟수 : " + point.getBuyCnt()
+                       + "\n누적 포인트 점수 : " + point.getPoint()
                        + "\n회원 등급 : " + memberShip.getMemberShip();
     }
 }
