@@ -26,6 +26,10 @@ public class Member {
         memberList.add(this);
     }
 
+    private void addPointByBestMember() {
+        this.totalPoint += 10000;
+    }
+
     private void resetMaxPoint() {
         if (maxPoint < totalPoint) {
             maxPoint = totalPoint;
@@ -35,6 +39,7 @@ public class Member {
     public static Member getBestMember() {
         for (Member m : memberList) {
             if (m.totalPoint == maxPoint) {
+                m.addPointByBestMember();
                 return m;
             }
         }
