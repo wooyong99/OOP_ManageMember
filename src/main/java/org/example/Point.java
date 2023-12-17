@@ -51,7 +51,7 @@ public class Point {
     public long sumPoint() {
         if (buyCnt < 3) {
             return buyCnt * 20;
-        } else if (buyCnt < 6) {
+        } else if (buyCnt < 5) {
             return buyCnt * 30;
         } else if (buyCnt < 10) {
             return buyCnt * 50;

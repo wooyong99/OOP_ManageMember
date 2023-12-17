@@ -20,7 +20,7 @@ public class PointTest {
         Point point = new Point(4);
         point.increaseBuyCnt();
 
-        assertThat(point.getPoint()).isEqualTo(150);
+        assertThat(point.getPoint()).isEqualTo(250);
     }
 
     @Test

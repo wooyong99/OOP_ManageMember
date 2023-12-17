@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MemberTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-12-17T12:13:47" hostname="WOOYONG" time="0.022">
+  <properties/>
+  <testcase name="�씠�떖�쓽 理쒓퀬 �쉶�썝 �늻�쟻 �룷�씤�듃 �빀怨� �젙�긽利앷�" classname="MemberTest" time="0.014"/>
+  <testcase name="援щℓ �썑 �쉶�썝 �쑀�슚�꽦 寃��궗" classname="MemberTest" time="0.002"/>
+  <testcase name="�솚遺� �썑 �쉶�썝 �쑀�슚�꽦 寃��궗" classname="MemberTest" time="0.001"/>
+  <testcase name="�쉶�썝 �깮�꽦" classname="MemberTest" time="0.001"/>
+  <testcase name="�씠�떖�쓽 理쒓퀬�쉶�썝 �솗�씤" classname="MemberTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

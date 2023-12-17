@@ -26,6 +26,7 @@ public class Member {
         for (Member m : memberList) {
             if (m.point.getPoint() == Point.maxPoint) {
                 m.point.addPointByBestMember();
+                m.memberShip.refresh(m.point.getPoint());
                 return m;
             }
         }
