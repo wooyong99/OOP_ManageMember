@@ -19,18 +19,28 @@ public class Member {
         memberShip = new MemberShip(buyCnt);
     }
 
-    public void display() {
-        System.out.println("==="
-                                   + "\n회원 아이디 : " + m_id
-                                   + "\n회원 이름 : " + name
-                                   + "\n가입일 : " + regDate
-                                   + "\n구매 횟수 : " + buyCnt
-                                   + "\n누적 포인트 점수 : " + totalPoint
-                                   + "\n회원 등급 : " + memberShip.getMemberShip());
-
+    @Override
+    public String toString() {
+        return "==="
+                       + "\n회원 아이디 : " + m_id
+                       + "\n회원 이름 : " + name
+                       + "\n가입일 : " + regDate
+                       + "\n구매 횟수 : " + buyCnt
+                       + "\n누적 포인트 점수 : " + totalPoint
+                       + "\n회원 등급 : " + memberShip.getMemberShip();
     }
 
-    public void initTotalPoint() {
+    public void increaseBuyCnt() {
+        buyCnt++;
+        initTotalPoint();
+    }
+
+    public void decreaseBuyCnt() {
+        buyCnt--;
+        initTotalPoint();
+    }
+
+    private void initTotalPoint() {
         if (buyCnt < 3) {
             this.totalPoint = buyCnt * 20;
             return;
