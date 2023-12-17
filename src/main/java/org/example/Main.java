@@ -6,5 +6,6 @@ public class Main {
         Member m2 = new Member(2, "홍길순", 9);
 
         System.out.println(m1);
+        System.out.println(m2);
     }
 }

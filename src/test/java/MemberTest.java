@@ -40,4 +40,15 @@ public class MemberTest {
                                                   + "누적 포인트 점수 : 120\n"
                                                   + "회원 등급 : FAMILY");
     }
+
+    @Test
+    @DisplayName("이달의 최고회원 확인")
+    void checkBestMember() {
+        Member m1 = new Member(1, "홍길동", 4);
+        Member m2 = new Member(2, "홍길순", 10);
+
+        Member bestMember = Member.getBestMember();
+
+        assertThat(bestMember).isEqualTo(m2);
+    }
 }
